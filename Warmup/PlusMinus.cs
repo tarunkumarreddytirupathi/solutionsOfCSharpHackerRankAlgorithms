@@ -1,0 +1,64 @@
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Collections;
+using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.Serialization;
+using System.Text.RegularExpressions;
+using System.Text;
+using System;
+
+class Result
+{
+
+    /*
+     * Complete the 'plusMinus' function below.
+     *
+     * The function accepts INTEGER_ARRAY arr as parameter.
+     */
+
+    public static void plusMinus(List<int> arr)
+    {int positiveNum=0,negativeNum=0,zeroNum=0;
+    for(int i=0;i<arr.Count;i++){
+    if(arr[i]>0){
+
+         ++positiveNum;
+         
+        }
+    else if(arr[i]<0){
+        ++negativeNum;
+    }
+    else{
+        ++zeroNum;
+    }
+        }
+
+float Result=(float)positiveNum/arr.Count;
+string formattedValue1 = String.Format("{0:0.000000}", Result);
+Console.WriteLine(formattedValue1);
+
+Result=(float)negativeNum/arr.Count;
+ formattedValue1 = String.Format("{0:0.000000}", Result);
+Console.WriteLine(formattedValue1);
+
+Result=(float)zeroNum/arr.Count;
+ formattedValue1 = String.Format("{0:0.000000}", Result);
+Console.WriteLine(formattedValue1);
+
+}
+
+class Solution
+{
+    public static void Main(string[] args)
+    {
+        int n = Convert.ToInt32(Console.ReadLine().Trim());
+
+        List<int> arr = Console.ReadLine().TrimEnd().Split(' ').ToList().Select(arrTemp => Convert.ToInt32(arrTemp)).ToList();
+
+        Result.plusMinus(arr);
+    }
+}}
